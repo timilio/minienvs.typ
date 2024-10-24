@@ -35,11 +35,7 @@
     return none
   }
 
-  if tail == none {
-    return (head.text, none)
-  } else {
-    (head.text, tail)
-  }
+  return (head.text, tail)
 }
 
 // TODO hanging indent?
@@ -95,7 +91,7 @@
   let relevant_counter = counter(figure.where(kind: "minienv"))
   let saved_count = relevant_counter.get()
   relevant_counter.update((current.count.first() - 1, ..current.count.slice(1, none)))
-  context [
+  box[
     #figure([], gap: 0pt, placement: none, kind: "minienv", supplement: current.head)
     #label
   ]
